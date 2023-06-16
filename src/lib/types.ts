@@ -11,3 +11,10 @@ export interface Answer {
 }
 
 export type Difficulty = 'easy' | 'medium' | 'hard'
+
+export interface Language {
+  englishName: string;
+  name: string;
+  isoCode: string;
+  flag: string;
+}

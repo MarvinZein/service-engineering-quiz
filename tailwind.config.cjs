@@ -8,7 +8,7 @@ const config = {
 
 	plugins: [require('daisyui')],
 	daisyui: {
-		themes: ['light', 'dark', 'fantasy', 'emerald', 'lofi', 'wireframe']
+		themes: ['light', 'dark', 'fantasy', 'emerald', 'lofi', 'wireframe', 'cmyk']
 	}
 };
 

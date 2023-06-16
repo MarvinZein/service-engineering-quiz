@@ -64,14 +64,13 @@
 		{:else}
 			<h2>Game over</h2>
 		{/if}
-		<div class="flex gap-2 justify-between items-center w-full">
+		<div class="flex gap-1 justify-between items-center">
 			{#each questions as question}
-				<svg viewBox="0 0 10 10" class="w-6 h-6">
+				<svg viewBox="0 0 10 10" class="w-5 h-5">
 					<rect
-						width="10"
 						height="10"
-						class="stroke-neutral"
-						class:stroke-primary={currentQuestion === question && gameStatus === 'running'}
+						width="10"
+						class:fill-primary={currentQuestion === question && gameStatus === 'running'}
 						class:fill-base-300={question.status === 'unanswered'}
 						class:fill-success={question.status === 'correct'}
 						class:fill-error={question.status === 'incorrect'}
