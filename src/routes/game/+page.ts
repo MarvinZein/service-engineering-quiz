@@ -16,10 +16,9 @@ interface TriviaResponse {
 }
 
 export async function load({ fetch }) {
-  const questionsPerDifficulty = 5;
+  const questionsPerDifficulty = 2;
   const difficulties: Difficulty[] = ['easy', 'medium', 'hard'];
 
-  // Fetch the untranslated Questions (5 easy, 5 medium, 5 hard)
   let theTriviaApiRes: TriviaResponse[][] = [];
   for (const difficulty of difficulties) {
     const questionResponse = await fetch(`https://the-trivia-api.com/v2/questions?limit=${questionsPerDifficulty}&difficulty=${difficulty}`);
@@ -37,7 +36,7 @@ export async function load({ fetch }) {
         answers.push({ text: incorrectAnswer, isCorrect: false })
       }
       answers.push({ text: q.correctAnswer, isCorrect: true });
-      quizQuestions.push({ text: questionText, textTranslation: '', answers: answers, answersTranslation: [], difficulty: difficulties[diff], status: 'unanswered' })
+      quizQuestions.push({ text: questionText, textTranslation: '', answers: answers, difficulty: difficulties[diff], status: 'unanswered' })
     }
   }
 

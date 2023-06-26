@@ -1,6 +1,6 @@
 export interface Question {
   text: string;
-  textTranslation: string,
+  textTranslation?: string,
   answers: Answer[];
   difficulty: Difficulty;
   status: 'unanswered' | 'correct' | 'incorrect';
@@ -8,7 +8,7 @@ export interface Question {
 
 export interface Answer {
   text: string,
-  translation: string,
+  translation?: string,
   isCorrect: boolean
 }
 
@@ -22,3 +22,5 @@ export interface Language {
   startTranslation: string;
   countryCode: string;
 }
+
+export type GameStatus = 'running' | 'over'

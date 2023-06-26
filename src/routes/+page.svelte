@@ -270,7 +270,8 @@
 			</select>
 		</div>
 
-		<a on:click={() => selectedLanguage.set(selected)} href="/game" class="btn btn-primary">Start</a
-		>
+		<a on:click={() => selectedLanguage.set(selected)} href="/game" class="btn btn-primary">
+			{selected.startTranslation}
+		</a>
 	</main>
 </div>
