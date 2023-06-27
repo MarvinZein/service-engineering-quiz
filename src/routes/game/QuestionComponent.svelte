@@ -18,7 +18,7 @@
 		const encodedText = encodeURIComponent(text);
 		const res = await fetch(`/api/translate/${target_lang}/${encodedText}`, { method: 'POST' });
 		const resData = await res.json();
-		const parsed: string[] = resData.translatedText.split('\n');
+		const parsed: string[] = resData.translatedText!.split('\n');
 		question.textTranslation = parsed[0];
 		for (let i = 0; i < 4; i++) {
 			question.answers[i].translation = parsed[i + 1];
