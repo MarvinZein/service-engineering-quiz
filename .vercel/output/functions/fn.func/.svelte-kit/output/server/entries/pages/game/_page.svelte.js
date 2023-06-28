@@ -1,4 +1,4 @@
-import { c as create_ssr_component, e as escape, a as subscribe, f as createEventDispatcher, d as each, v as validate_component } from "../../../chunks/index2.js";
+import { c as create_ssr_component, e as escape, a as subscribe, h as createEventDispatcher, f as each, v as validate_component } from "../../../chunks/index2.js";
 import { t as translationToggle, s as selectedLanguage } from "../../../chunks/stores.js";
 const ArrowIcon = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   return `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path></svg>`;
@@ -31,8 +31,8 @@ const QuestionRectangle = create_ssr_component(($$result, $$props, $$bindings, s
     }
   }
   return `<div class="${[
-    "w-full aspect-square " + escape(bg, true) + " svelte-saan9c",
-    isCurrentQuestion && questionStatus == "unanswered" && gameStatus === "running" ? "blinking" : ""
+    "h-full aspect-square rounded-full " + escape(bg, true) + " svelte-saan9c",
+    (isCurrentQuestion && questionStatus == "unanswered" && gameStatus === "running" ? "blinking" : "") + " " + (isCurrentQuestion && questionStatus == "unanswered" && gameStatus === "running" ? "ring" : "")
   ].join(" ").trim()}"></div>`;
 });
 const QuestionComponent_svelte_svelte_type_style_lang = "";
@@ -89,7 +89,7 @@ const Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
     {},
     {}
   )}`}
-		<div class="flex justify-between items-center w-full gap-2">${each(questions, (question) => {
+		<div class="flex justify-evenly items-center w-full gap-2 h-12">${each(questions, (question) => {
     return `${validate_component(QuestionRectangle, "QuestionRectangle").$$render(
       $$result,
       {

@@ -19,6 +19,10 @@ function subscribe(store, ...callbacks) {
   const unsub = store.subscribe(...callbacks);
   return unsub.unsubscribe ? () => unsub.unsubscribe() : unsub;
 }
+function set_store_value(store, ret, value) {
+  store.set(value);
+  return ret;
+}
 function custom_event(type, detail, { bubbles = false, cancelable = false } = {}) {
   const e = document.createEvent("CustomEvent");
   e.initCustomEvent(type, bubbles, cancelable, detail);
@@ -135,11 +139,12 @@ export {
   subscribe as a,
   add_attribute as b,
   create_ssr_component as c,
-  each as d,
+  set_store_value as d,
   escape as e,
-  createEventDispatcher as f,
+  each as f,
   getContext as g,
-  safe_not_equal as h,
+  createEventDispatcher as h,
+  safe_not_equal as i,
   missing_component as m,
   noop as n,
   setContext as s,

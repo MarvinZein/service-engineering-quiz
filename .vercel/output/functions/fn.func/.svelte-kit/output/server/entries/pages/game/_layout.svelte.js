@@ -8,10 +8,10 @@ const Layout = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let $translationToggle, $$unsubscribe_translationToggle;
   $$unsubscribe_translationToggle = subscribe(translationToggle, (value) => $translationToggle = value);
   $$unsubscribe_translationToggle();
-  return `<main class="min-h-screen w-full grid grid-rows-[auto_1fr] items-start"><nav class="p-2 flex justify-between items-center bg-base-300"><a href="/" class="btn btn-ghost">${validate_component(HomeIcon, "HomeIcon").$$render($$result, {}, {}, {})}</a>
-		<label class="label cursor-pointer w-fit flex gap-2"><span class="label-text">${validate_component(LanguageIcon, "LanguageIcon").$$render($$result, {}, {}, {})}</span>
-			<input type="checkbox" class="toggle"${add_attribute("checked", $translationToggle, 1)}></label></nav>
-	<div class="px-4 h-full">${slots.default ? slots.default({}) : ``}</div></main>`;
+  return `<nav class="p-2 flex justify-between items-center bg-base-300 h-[3rem]"><a href="/" class="btn btn-ghost">${validate_component(HomeIcon, "HomeIcon").$$render($$result, {}, {}, {})}</a>
+	<label class="label cursor-pointer w-fit flex gap-2"><span class="label-text">${validate_component(LanguageIcon, "LanguageIcon").$$render($$result, {}, {}, {})}</span>
+		<input type="checkbox" class="toggle"${add_attribute("checked", $translationToggle, 1)}></label></nav>
+<div class="min-h-[calc(100vh-3rem)] flex justify-center items-center p-4">${slots.default ? slots.default({}) : ``}</div>`;
 });
 export {
   Layout as default
