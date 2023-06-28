@@ -16,7 +16,8 @@
 
 <div
 	class:blinking={isCurrentQuestion && questionStatus == 'unanswered' && gameStatus === 'running'}
-	class="w-full aspect-square {bg}"
+	class="h-full aspect-square rounded-full {bg}"
+	class:ring={isCurrentQuestion && questionStatus == 'unanswered' && gameStatus === 'running'}
 />
 
 <style lang="postcss">

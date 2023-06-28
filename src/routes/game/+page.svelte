@@ -60,7 +60,7 @@
 				</a>
 			</div>
 		{/if}
-		<div class="flex justify-between items-center w-full gap-2">
+		<div class="flex justify-evenly items-center w-full gap-2 h-12">
 			{#each questions as question (question.text)}
 				<QuestionRectangle
 					{gameStatus}

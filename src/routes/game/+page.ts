@@ -16,7 +16,7 @@ interface TriviaResponse {
 }
 
 export async function load({ fetch }) {
-  const questionsPerDifficulty = 2;
+  const questionsPerDifficulty = 1;
   const difficulties: Difficulty[] = ['easy', 'medium', 'hard'];
 
   let theTriviaApiRes: TriviaResponse[][] = [];
