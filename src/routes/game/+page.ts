@@ -19,12 +19,14 @@ export async function load({ fetch }) {
   const questionsPerDifficulty = 1;
   const difficulties: Difficulty[] = ['easy', 'medium', 'hard'];
 
-  let theTriviaApiRes: TriviaResponse[][] = [];
-  for (const difficulty of difficulties) {
-    const questionResponse = await fetch(`https://the-trivia-api.com/v2/questions?limit=${questionsPerDifficulty}&difficulty=${difficulty}`);
-    const questionData = await questionResponse.json()
-    theTriviaApiRes = [...theTriviaApiRes, questionData];
-  }
+  // Map each difficulty to a fetch request and store them in an array of promises
+  const fetchPromises = difficulties.map(difficulty =>
+    fetch(`https://the-trivia-api.com/v2/questions?limit=${questionsPerDifficulty}&difficulty=${difficulty}`).then(res => res.json())
+  );
+
+  // Use Promise.all() to execute all the fetch requests concurrently
+  const theTriviaApiRes: TriviaResponse[][] = await Promise.all(fetchPromises);
+
 
   let quizQuestions: Question[] = [];
   for (let diff = 0; diff < 3; diff++) {
